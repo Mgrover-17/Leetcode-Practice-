@@ -3,9 +3,9 @@ import java.util.*;
 class Node
 {
     int ans ;
-    private int data;
-    private Node right;
-    private Node left;
+    int data;
+    Node right;
+    Node left;
     public int kthAncestor(Node root, int k, int node)
     {
         //Write your code here
