@@ -1,0 +1,11 @@
+class Solution
+{
+    public String multiplyStrings(String s1,String s2)
+    {
+        //code here.
+       BigInteger i = new BigInteger(s1);
+        BigInteger j = new BigInteger(s2);
+        BigInteger result = i.multiply(j);
+        return result.toString();
+    }
+}
