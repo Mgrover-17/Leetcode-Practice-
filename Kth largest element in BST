@@ -1,0 +1,19 @@
+static void kLarge(Node root, ArrayList<Integer>list){
+        if(root==null){
+            return;
+        }
+        list.add(root.data);
+        kLarge(root.left,list);
+        kLarge(root.right,list);
+        
+    }
+    public int kthLargest(Node root,int K)
+    {
+        //Your code here
+        ArrayList<Integer>list= new ArrayList<>();
+        kLarge(root,list);
+        Collections.sort(list);
+        
+        return list.get(list.size()-K);
+        
+    }
