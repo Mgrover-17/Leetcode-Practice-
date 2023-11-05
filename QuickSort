@@ -1,0 +1,47 @@
+public class QuickSort {
+
+    public static int pivotIdx(int []arr,int low,int high){
+    
+    int pivot = arr[high];
+    int i=low;
+    int j=low;
+    while(i<=high-1){
+        if(arr[i]<=pivot){
+            int temp = arr[i];
+            arr[i] = arr[j];
+            arr[j]=temp;
+            j++;
+        }
+        i++;
+    }
+
+    int temp = arr[high];
+    arr[high] = arr[j];
+    arr[j] = temp;
+
+
+    return j;
+    }
+
+    public static void QuickSort(int arr[],int low,int high){
+
+        if(low>=high){
+            return;
+        }
+
+        int idx = pivotIdx(arr,low,high);
+        QuickSort(arr,low,idx-1);
+        QuickSort(arr, idx+1, high);
+
+    }
+    public static void main(String[] args) {
+        int arr [] = {9,8,6,4,2,1,2,4,5,6,7,4};
+
+    QuickSort(arr, 0, arr.length-1);
+
+    for(int k=0;k<arr.length;k++){
+        System.out.print(arr[k]+" ");
+    }
+
+    }
+}
