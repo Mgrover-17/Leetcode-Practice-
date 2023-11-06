@@ -1,0 +1,36 @@
+public class DNFSort {
+    public static void Sort(int arr[]){
+        int i=0;
+        int j=0;
+        int k=arr.length-1;
+
+        while(i<=k){  // ko kobhi check krna hai iss lia 
+            if(arr[i]==0){
+                int temp=arr[i];
+                arr[i]=arr[j];
+                arr[j]=temp;
+                j++;
+                i++;
+            }
+            if(arr[i]==1){
+                i++;
+            }
+            if(arr[i]==2){
+                int temp=arr[i];
+                arr[i]=arr[k];
+                arr[k]=temp;
+                k--;
+            }
+            
+        }
+    }
+    public static void main(String[] args) {
+        int arr [] = {0,1,1,1,0,0,1,1,2,2,2,1,1,1,1,0,0,2,2,2,0,0,0};
+
+        Sort(arr);
+    
+        for(int k=0;k<arr.length;k++){
+            System.out.print(arr[k]+" ");
+        }
+    }
+}
