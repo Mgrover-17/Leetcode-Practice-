@@ -1,0 +1,35 @@
+public boolean isPossible(int arr[],int divisor, int threshold){
+        int divisorSum=0;
+        for(int i=0;i<arr.length;i++){
+            int div = arr[i]/divisor;
+            if(arr[i]%divisor!=0){
+                div++;
+            }
+            divisorSum+=div;
+            if(divisorSum>threshold){
+                return false;
+            }
+        }
+        return true;
+    }
+    public int smallestDivisor(int[] nums, int threshold) {
+        int low=1;
+        int high=0;
+        for(int i=0;i<nums.length;i++){
+            high=Math.max(nums[i],high);
+        }
+
+        int ans=0;
+        while(low<=high){
+            int mid = low+(high-low)/2;
+            if(isPossible(nums,mid,threshold)){
+                ans=mid;
+                high=mid-1;
+            }
+            else{
+                low=mid+1;
+            }
+        }
+
+        return ans;
+    }
